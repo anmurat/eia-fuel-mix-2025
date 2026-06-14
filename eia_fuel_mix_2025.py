@@ -6,7 +6,7 @@ import matplotlib.patches as mpatches
 import numpy as np
 
 # ---- SETTINGS ----
-DATA_DIR = "/Users/anmurat/Desktop/eia_Data/"
+DATA_DIR = "eia_Data/"
 
 files = {
     'CAISO': 'CISO.xlsx',
@@ -104,7 +104,7 @@ for x in [25, 50, 75]:
 
 for i, iso in enumerate(isos):
     y_bar = (len(isos) - 1 - i) * row_height + 0.7
-    y_sub = y_bar - 0.85  # 1. değişiklik: mesafe artırıldı
+    y_sub = y_bar - 0.85
 
     pct = agg_pct.loc[iso]
     dominant = pct.idxmax()
@@ -146,12 +146,12 @@ for i, iso in enumerate(isos):
                 ha = 'right'
             else:
                 ha = 'center'
-            dot_x = x_pos + (2.5 if j == 0 else (-2.5 if j == n - 1 else 0))  # 2. değişiklik
+            dot_x = x_pos + (2.5 if j == 0 else (-2.5 if j == n - 1 else 0))
             ax_chart.plot(dot_x, y_sub, 'o',
                           color=COLORS[src], markersize=4, zorder=3)
             ax_chart.text(x_pos, y_sub - 0.08,
                           f'{SHORT[src]} {val:.0f}%',
-                          va='top', ha=ha, fontsize=7.5, color='#d0d7de', zorder=3)  # 3. değişiklik
+                          va='top', ha=ha, fontsize=7.5, color='#d0d7de', zorder=3)
 
 # Axis
 ax_chart.set_yticks([])
@@ -191,6 +191,6 @@ ax_footer.text(0.94, 0.40,
                fontsize=8.5, color=MUTED, va='center', ha='right',
                transform=ax_footer.transAxes)
 
-out = '/Users/anmurat/Desktop/iso_fuel_mix_2025.png'
+out = 'iso_fuel_mix_2025.png'
 plt.savefig(out, dpi=150, bbox_inches='tight', facecolor=BG)
 print(f"Saved: {out}")
