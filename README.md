@@ -68,7 +68,7 @@ pip install pandas matplotlib openpyxl
 python eia_fuel_mix_2025.py
 ```
 
-Output saved as `iso_fuel_mix_2025_linkedin.png`.
+Output saved as `iso_fuel_mix_2025.png`.
 
 ## Tech Stack
 
